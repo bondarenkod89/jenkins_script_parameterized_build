@@ -10,6 +10,10 @@ node {
 
     liste1 = readFile 'property1'
     liste2 = readFile 'property2'
+    
+    echo "-----------------------------------------------------------"
+    println(files)
+    echo "-----------------------------------------------------------"
 
     
     properties([parameters([choice(name: 'Param 1', choices: "${liste1}", description: 'Select param 1'),
