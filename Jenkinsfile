@@ -33,7 +33,7 @@ node {
                      classpath: [], 
                      sandbox: false, 
                      script: sh(returnStdout:true, script: 'cat ${liste2}')
-                            ]]]]])
+                            ]]]])
     
     sh 'echo Hello World'
     
