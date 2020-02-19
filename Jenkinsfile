@@ -8,11 +8,9 @@ node {
     println files.split("\n").collect()[1,2]
     sh 'ls -la'
     
-    fileprop = sh (returnStdout: true, script: 'ls | grep prop > test.txt')
-    
-    sh 'ls -la'
+    fileprop = sh (returnStdout: true, script: 'ls | grep prop > fileproperty')
 
-    liste1 = readFile 'property1'
+    liste1 = readFile 'fileproperty'
     liste2 = readFile 'property2'
     
 
