@@ -9,7 +9,7 @@ node {
     sh 'ls -la'
     
     def pw = new File('propertyfile.txt').newPrintWriter()
-    pw.println(sh(returnStdout: true, script: 'ls | grep prop > pw'))
+    pw.println(sh(returnStdout: true, script: 'ls | grep prop > ${pw}'))
 
     liste1 = readFile 'property1'
     liste2 = readFile 'property2'
