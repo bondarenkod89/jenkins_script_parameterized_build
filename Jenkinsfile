@@ -35,6 +35,4 @@ node {
                      script: sh(returnStdout:true, script: 'cat ${liste2}')
                             ]]]])
     
-    sh 'echo Hello World'
-    
 }
