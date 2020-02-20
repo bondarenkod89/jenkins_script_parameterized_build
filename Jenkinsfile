@@ -61,7 +61,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout: true, script: 'cat file_p')
+						script: 'return['${p_files[0]}','${p_files[1]}']'
 					]
 				]
 			],
