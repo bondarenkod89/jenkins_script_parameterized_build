@@ -22,11 +22,6 @@ node {
 	} else {
 		liste2 = readFile p_files[1]
 	}
-    
-	new File('out.txt').createNewFile()
-	File file = new File('out.txt')
-    file.append("${liste1}")
-    println file.text
 	
 	/*
 	properties(
@@ -66,7 +61,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout: true, script: 'echo ${liste1}')
+						script: sh(returnStdout: true, script: 'cat file_p')
 					]
 				]
 			],
