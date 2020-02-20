@@ -5,13 +5,18 @@ node {
     checkout scm
     files = sh(returnStdout: true, script: 'ls')
     println "list of property files"
-    println files.split("\n").collect()[2,3]
+    p_files = files.split("\n").collect()[2,3]
     sh 'ls -la'
     
     fileprop = sh (returnStdout: true, script: 'ls | grep prop > file_p')
     sh 'ls -la'
 
     liste1 = readFile 'file_p'
+	
+	if (liste1.equals(file_p[0])){
+		liste2 = readFile 
+	}
+    
     liste2 = readFile 'property2'
 	
     properties(
@@ -21,7 +26,7 @@ node {
                 parameterDefinitions: [
                         [
                                 $class     : 'ChoiceParameterDefinition',
-                                choices    : "${liste1}",
+                                choices    : "${p_files}",
                                 description: 'select your choice : ',
                                 name       : 'choice1'
                         ],
