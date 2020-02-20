@@ -18,9 +18,9 @@ node {
 	
 	
 	if (liste1.equals(p_files[0])){
-		sh 'cat $p_files[0] >> out.txt'
+		sh 'echo $p_files[0] >> out.txt'
 	} else {
-		sh 'cat $p_files[1] >> out.txt'
+		sh 'echo $p_files[1] >> out.txt'
 	}
 	
 	/*
