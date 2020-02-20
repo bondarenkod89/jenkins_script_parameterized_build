@@ -11,6 +11,8 @@ node {
     fileprop = sh (returnStdout: true, script: 'ls | grep prop > fileproperty')
 
     liste1 = readFile 'fileproperty'
+    sh 'ls -la'
+    sh 'pwd'
     
     File file1 = new File('fileproperty')
     def String yourData = file1.readLines()
