@@ -84,7 +84,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout: true, script: 'cat out.txt')
+						script: sh(returnStdout: true, script: 'cat ./out.txt')
 					]
 				]
 			]
