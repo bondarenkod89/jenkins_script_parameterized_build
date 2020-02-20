@@ -26,7 +26,7 @@ node {
                 parameterDefinitions: [
                         [
                                 $class     : 'ChoiceParameterDefinition',
-                                choices    : "${p_files[0,1]}",
+                                choices    : "${p_files["0","1"]}",
                                 description: 'select your choice : ',
                                 name       : 'choice1'
                         ],
