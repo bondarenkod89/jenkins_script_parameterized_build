@@ -34,7 +34,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout: true, script: 'cat fileproperty')
+						script: sh(returnStdout: true, script: 'cat ./fileproperty')
 					]
 				]
 			],
@@ -56,7 +56,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout:true, script: 'cat property2')
+						script: sh(returnStdout:true, script: 'cat ./property2')
 					]
 				]
 			]
