@@ -13,55 +13,27 @@ node {
 
     liste1 = readFile 'fileproperty'
     liste2 = readFile 'property2'
-
-
-    properties([
-        parameters([
-            [$class: 'ChoiceParameter',
-				choiceType: 'PT_SINGLE_SELECT',
-				description: 'Select file',
-				filterLength: 1,
-				filterable: false,
-				name: 'Files',
-				randomName: 'choice-parameter-5631314439613978',
-				script: [
-					$class: 'GroovyScript', 
-					fallbackScript: [
-						classpath: [],
-						sandbox: false,
-						script: sh(returnStdout:true, script: 'cat ./fileproperty')
-					],
-					script: [
-						classpath: [],
-						sandbox: false,
-						script: sh(returnStdout:true, script: 'cat ./fileproperty')
-					]
-				]
-			],
-			[$class: 'CascadeChoiceParameter',
-				choiceType: 'PT_SINGLE_SELECT',
-				description: 'Select value from file',
-				filterLength: 1,
-				filterable: false,
-				name: 'Value',
-				randomName: 'choice-parameter-5631314456178619',
-				referencedParameters: 'Files',
-				script: [
-					$class: 'GroovyScript',
-					fallbackScript: [
-						classpath: [],
-						sandbox: false,
-						script: sh(returnStdout:true, script: 'cat ./property2')
-					],
-					script: [
-						classpath: [],
-						sandbox: false,
-						script: sh(returnStdout:true, script: 'cat ./property2')
-					]
-				]
-			]
-		])
-    ])
+	
+    properties(
+    [
+        [
+                $class              : 'ParametersDefinitionProperty',
+                parameterDefinitions: [
+                        [
+                                $class     : 'ChoiceParameterDefinition',
+                                choices    : "${liste1}",
+                                description: 'select your choice : ',
+                                name       : 'choice1'
+                        ],
+                        [
+                                $class     : 'ChoiceParameterDefinition',
+                                choices    : '',
+                                description: 'select another choice : ',
+                                name       : 'choice2'
+                        ]
+		]
+	]
+    ]
 
     sh 'echo Hello World'
 
