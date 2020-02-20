@@ -23,7 +23,7 @@ node {
 		liste2 = readFile p_files[1]
 	}
     
-	File file = new File("out.txt")
+	File file = new File('out.txt')
     file.append("${liste1}")
     println file.text
 	
