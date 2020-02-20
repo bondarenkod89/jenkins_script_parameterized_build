@@ -61,7 +61,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: 'return['p_files[0]','p_files[1]']'
+						script: 'return["p_files[0]","p_files[1]"]'
 					]
 				]
 			],
