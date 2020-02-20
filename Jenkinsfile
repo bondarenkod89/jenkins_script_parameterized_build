@@ -61,9 +61,11 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: '''fuck = ${p_files}
+						script: 
+							''' fuck = ${file_p}
 								content = sh(returnStdout:true, script: \'cat ${fuck}\')
-								return content'''
+								return content
+							'''
 					]
 				]
 			],
