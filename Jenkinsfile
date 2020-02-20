@@ -8,17 +8,23 @@ node {
     p_files = files.split("\n").collect()[2,3]
     sh 'ls -la'
     
-    fileprop = sh (returnStdout: true, script: 'ls | grep prop > file_p')
+    sh 'ls | grep prop > file_p')
     sh 'ls -la'
 
 
     liste1 = readFile 'file_p'
+
+	liste2 = '''if (liste1.equals(p_files[0])){
+					return [p_files[0].readLines()]
+				} else if (liste1.equals(p_files[1])){
+					return [p_files[1].readLines()]'''
 	
+	/*
 	if (liste1.equals(p_files[0])){
 		liste2 = readFile p_files[0]
 	} else {
 		liste2 = readFile p_files[1]
-	}
+	}*/
     
 //    liste2 = readFile 'property2'
 	
