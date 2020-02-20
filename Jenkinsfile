@@ -14,10 +14,10 @@ node {
 
     liste1 = readFile 'file_p'
 	
-	if (liste1.equals(file_p[0])){
-		liste2 = readFile file_p[0]
+	if (liste1.equals(p_files[0])){
+		liste2 = readFile p_files[0]
 	} else {
-		liste2 = readFile file_p[1]
+		liste2 = readFile p_files[1]
 	}
     
 //    liste2 = readFile 'property2'
@@ -32,7 +32,7 @@ node {
 			 name: 'choice1'
 			],
         	[$class: 'ChoiceParameterDefinition',
-		 	choices: '${liste2}',
+		 	choices: "${liste2}",
 		 	description: 'select another choice : ',
 		 	name: 'choice2'
 			]
