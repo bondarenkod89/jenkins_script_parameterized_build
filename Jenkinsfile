@@ -14,7 +14,7 @@ node {
     sh 'ls -la'
     sh 'pwd'
     
-    File file1 = new File('$PWD/fileproperty')
+    File file1 = new File('/var/jenkins_home/workspace/test/fileproperty')
     def String yourData = file1.readLines()
     
 
