@@ -14,17 +14,16 @@ node {
 
     liste1 = readFile 'file_p'
 
-	liste2 = 'if(liste1.equals(p_files[0])){return p_files[0].readLines()} else if(liste1.equals(p_files[1])){return p_files[1].readLines()}'
+	//liste2 = 'if(liste1.equals(p_files[0])){return p_files[0].readLines()} else if(liste1.equals(p_files[1])){return p_files[1].readLines()}'
 	
-	/*
+	
 	if (liste1.equals(p_files[0])){
 		liste2 = readFile p_files[0]
 	} else {
 		liste2 = readFile p_files[1]
-	}*/
+	}
     
-//    liste2 = readFile 'property2'
-	
+	/*
 	properties(
     [
         [$class: 'ParametersDefinitionProperty',
@@ -42,7 +41,54 @@ node {
 		]
 		]
     ])
-
+	*/
+	properties([
+        parameters([
+            [$class: 'ChoiceParameter',
+				choiceType: 'PT_SINGLE_SELECT',
+				description: 'Select file',
+				filterLength: 1,
+				filterable: false,
+				name: 'Files',
+				randomName: 'choice-parameter-5631314439613978',
+				script: [
+					$class: 'GroovyScript', 
+					fallbackScript: [
+						classpath: [],
+						sandbox: false,
+						script: ''
+					],
+					script: [
+						classpath: [],
+						sandbox: false,
+						script: 'return["${liste1}"]'
+					]
+				]
+			],
+			[$class: 'CascadeChoiceParameter',
+				choiceType: 'PT_SINGLE_SELECT',
+				description: 'Select value from file',
+				filterLength: 1,
+				filterable: false,
+				name: 'Value',
+				randomName: 'choice-parameter-5631314456178619',
+				referencedParameters: 'files',
+				script: [
+					$class: 'GroovyScript',
+					fallbackScript: [
+						classpath: [],
+						sandbox: false,
+						script: ''
+					],
+					script: [
+						classpath: [],
+						sandbox: false,
+						script: 'return["${liste1}"]'
+					]
+				]
+			]
+		])
+])
     sh 'echo Hello World'
 
 }
