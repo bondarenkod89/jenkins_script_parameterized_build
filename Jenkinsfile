@@ -29,12 +29,12 @@ node {
 					fallbackScript: [
 						classpath: [],
 						sandbox: false,
-						script: 'cat ./fileproperty'
+						script: sh(returnStdout:true, script: 'cat ./fileproperty')
 					],
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: 'cat ./fileproperty'
+						script: sh(returnStdout:true, script: 'cat ./fileproperty')
 					]
 				]
 			],
@@ -51,7 +51,7 @@ node {
 					fallbackScript: [
 						classpath: [],
 						sandbox: false,
-						script: 'cat ./property2'
+						script: sh(returnStdout:true, script: 'cat ./property2')
 					],
 					script: [
 						classpath: [],
