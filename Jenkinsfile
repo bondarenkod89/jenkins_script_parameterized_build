@@ -7,7 +7,7 @@ node {
     println "list of property files"
     p_files = files.split("\n").collect()[2,3]
     sh 'ls -la'
-    testvar = 'return[\'' + p_files[0] + '\', \'' + p_files[1] + '\']'
+    
     fileprop = sh (returnStdout: true, script: 'ls | grep prop > file_p')
     sh 'ls -la'
 
@@ -26,7 +26,7 @@ node {
                 parameterDefinitions: [
                         [
                                 $class     : 'ChoiceParameterDefinition',
-                                choices    : "${testvar}",
+                                choices    : "${liste1}",
                                 description: 'select your choice : ',
                                 name       : 'choice1'
                         ],
