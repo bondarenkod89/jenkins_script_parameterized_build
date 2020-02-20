@@ -29,7 +29,7 @@ node {
 					fallbackScript: [
 						classpath: [],
 						sandbox: false,
-						script: ''
+						script: 'return[\'Could not get Env\']'
 					],
 					script: [
 						classpath: [],
