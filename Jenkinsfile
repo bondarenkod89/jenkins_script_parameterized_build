@@ -12,7 +12,7 @@ node {
 
     liste1 = readFile 'fileproperty'
     
-    File file1 = new File('${liste1}')
+    File file1 = new File('fileproperty')
     def String yourData = file1.readLines()
     
 
