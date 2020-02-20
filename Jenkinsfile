@@ -61,7 +61,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: 'return["${liste1}"]'
+						script: sh(returnStdout: true, script: 'echo $liste1')
 					]
 				]
 			],
@@ -83,7 +83,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: 'return["${liste1}"]'
+						script: sh(returnStdout: true, script: 'echo $liste2')
 					]
 				]
 			]
