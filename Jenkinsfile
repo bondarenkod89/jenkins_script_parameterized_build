@@ -10,6 +10,7 @@ node {
     
     fileprop = sh (returnStdout: true, script: 'ls | grep prop > file_p')
     sh 'ls -la'
+	println fileprop
 
     liste1 = readFile 'file_p'
 	
