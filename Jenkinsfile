@@ -34,7 +34,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout: true, script: 'cat ./fileproperty')
+						script: 'return["${liste1}"]'
 					]
 				]
 			],
@@ -45,7 +45,7 @@ node {
 				filterable: false,
 				name: 'Value',
 				randomName: 'choice-parameter-5631314456178619',
-				referencedParameters: 'files',
+				referencedParameters: 'Files',
 				script: [
 					$class: 'GroovyScript',
 					fallbackScript: [
