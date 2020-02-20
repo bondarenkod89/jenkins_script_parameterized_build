@@ -32,7 +32,7 @@ node {
                         ],
                         [
                                 $class     : 'ChoiceParameterDefinition',
-                                choices    : '',
+				choices    : '${fileprop}',
                                 description: 'select another choice : ',
                                 name       : 'choice2'
                         ]
