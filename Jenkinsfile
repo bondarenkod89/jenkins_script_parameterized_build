@@ -8,7 +8,7 @@ node {
     p_files = files.split("\n").collect()[2,3]
     sh 'ls -la'
     
-    sh 'ls | grep prop > file_p')
+    sh 'ls | grep prop >> file_p'
     sh 'ls -la'
 
 
