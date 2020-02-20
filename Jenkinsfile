@@ -7,7 +7,7 @@ node {
     println "list of property files"
     testvar = files.split("\n").collect()[1,2]
     println "List testvar"
-    ptintln testvar 
+//    ptintln testvar 
     sh 'ls -la'
 
     liste1 = readFile 'property1'
