@@ -23,6 +23,6 @@ node {
     properties([
         parameters([
             choice(name: 'Param 1', choices: "${liste1}", description: 'Select param 1'),
-            choice(name: 'Param 2', choices: "${yourData}", description: 'Select param 2')])])
+            //choice(name: 'Param 2', choices: "${yourData}", description: 'Select param 2')])])
     
 }
