@@ -15,8 +15,53 @@ node {
     liste2 = readFile 'property2'
 
 
-    properties([parameters([choice(name: 'Param 1', choices: "${liste1}", description: 'Select param 1'),
-                            choice(name: 'Param 2', choices: "${liste2}", description: 'Select param 2')])])
+    properties([
+        parameters([
+            [$class: 'ChoiceParameter',
+				choiceType: 'PT_SINGLE_SELECT',
+				description: 'Select file',
+				filterLength: 1,
+				filterable: false,
+				name: 'Files',
+				randomName: 'choice-parameter-5631314439613978',
+				script: [
+					$class: 'GroovyScript', 
+					fallbackScript: [
+						classpath: [],
+						sandbox: false,
+						script: ''
+					],
+					script: [
+						classpath: [],
+						sandbox: false,
+						script: sh(returnStdout: true, script: 'cat fileproperty')
+					]
+				]
+			],
+			[$class: 'CascadeChoiceParameter',
+				choiceType: 'PT_SINGLE_SELECT',
+				description: 'Select value from file',
+				filterLength: 1,
+				filterable: false,
+				name: 'Value',
+				randomName: 'choice-parameter-5631314456178619',
+				referencedParameters: 'files',
+				script: [
+					$class: 'GroovyScript',
+					fallbackScript: [
+						classpath: [],
+						sandbox: false,
+						script: ''
+					],
+					script: [
+						classpath: [],
+						sandbox: false,
+						script: sh(returnStdout:true, script: 'cat property2')
+					]
+				]
+			]
+		])
+    ])
 
     sh 'echo Hello World'
 
