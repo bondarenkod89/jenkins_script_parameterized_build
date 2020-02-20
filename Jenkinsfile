@@ -29,12 +29,12 @@ node {
 					fallbackScript: [
 						classpath: [],
 						sandbox: false,
-						script: 'return[\'Could not get Env\']'
+						script: ''
 					],
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: 'return["${liste1}"]'
+						script: 'cat fileproperty'
 					]
 				]
 			],
