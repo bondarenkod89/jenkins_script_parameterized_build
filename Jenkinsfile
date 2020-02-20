@@ -13,9 +13,9 @@ node {
 
     liste1 = readFile 'file_p'
 	
-	if (liste1.equals(file_p[0])){
-		liste2 = readFile 
-	}
+	//if (liste1.equals(file_p[0])){
+	//	liste2 = readFile 
+	//}
     
     liste2 = readFile 'property2'
 	
