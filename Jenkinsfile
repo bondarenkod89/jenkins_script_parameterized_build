@@ -14,7 +14,7 @@ node {
     sh 'ls -la'
     sh 'pwd'
     
-    File file1 = new File('fileproperty')
+    File file1 = new File('./fileproperty')
     def String yourData = file1.readLines()
     
 
