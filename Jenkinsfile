@@ -13,14 +13,13 @@ node {
     liste1 = readFile 'fileproperty'
     liste2 = readFile "${liste1}"
     sh 'ls -la'
-    sh 'pwd'
-    
-    File file1 = new File("/var/jenkins_home/workspace/test/${liste2}")
-    def String yourData = file1.readLines()
-    
-    sh 'ls -la'
 
-    
+//    for (def i=0;i<=2;i++){
+//        log.info file1.readLines().get(i)
+//    File file1 = new File()
+//    def String yourData = file1.readLines()
+//    }
+   
     properties([
         parameters([
             choice(name: 'Param 1', choices: "${liste1}", description: 'Select param 1'),
