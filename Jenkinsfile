@@ -14,7 +14,7 @@ node {
 
     liste1 = readFile 'file_p'
 
-	liste2 = 'if(liste1.equals(p_files[0])){return [p_files[0].readLines()]} else if(liste1.equals(p_files[1])){return [p_files[1].readLines()]'
+	liste2 = 'if(liste1.equals(p_files[0])){return p_files[0].readLines()} else if(liste1.equals(p_files[1])){return p_files[1].readLines()'
 	
 	/*
 	if (liste1.equals(p_files[0])){
