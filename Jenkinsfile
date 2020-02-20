@@ -18,9 +18,9 @@ node {
 	
 	
 	if (liste1.equals(p_files[0])){
-		liste2 = readFile p_files[0]
+		sh 'cat $p_files[0] >> out.txt'
 	} else {
-		liste2 = readFile p_files[1]
+		sh 'cat $p_files[1] >> out.txt'
 	}
 	
 	/*
@@ -84,7 +84,7 @@ node {
 					script: [
 						classpath: [],
 						sandbox: false,
-						script: sh(returnStdout: true, script: 'echo ${liste2}')
+						script: sh(returnStdout: true, script: 'cat out.txt')
 					]
 				]
 			]
