@@ -5,7 +5,7 @@ node {
     checkout scm
     files = sh(returnStdout: true, script: 'ls')
     println "list of property files"
-    println files.split("\n").collect()[1,2]
+    println files.split("\n").collect()[2,3]
     sh 'ls -la'
     
     fileprop = sh (returnStdout: true, script: 'ls | grep prop > fileproperty')
