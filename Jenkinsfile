@@ -11,7 +11,7 @@ node {
     fileprop = sh (returnStdout: true, script: 'ls | grep prop > file_p')
     sh 'ls -la'
 
-    liste1 = readFile 'fileproperty'
+    liste1 = readFile 'file_p'
     liste2 = readFile 'property2'
 	
     properties(
