@@ -13,7 +13,7 @@ node {
     fileprop1=$(cat file_list | head -n1 | tail -n1)
     sed "s/.*/'&',/" $fileprop1 > prop_list
     sed '$ s/,$//' prop_list > temp2
-    sed ''1' s/^/return[/\n' temp2 > prop_list
+    echo "return[" | cat - temp2
     echo "]" >> temp2 && mv temp2 prop_list
     '''
     
