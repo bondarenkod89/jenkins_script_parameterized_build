@@ -11,8 +11,8 @@ node {
     sh 'ls | grep prop >> file_list'
     sh '''sed "s/.*/'&',/" file_list > temp1'''
     sh '''sed '$ s/,$//' temp1 > file_list'''
-    sh '''sed -i -e "1 s/^/return[\n/;" file_list'''
-    sh '''echo "]" >> file_list'''
+    sh '''sed "'1' s/^/return[/" file_list > temp1'''
+    sh '''echo "]" >> temp1 && mv temp1 file_list'''
     
     sh 'ls -la'
     sh 'cat ./file_list'
