@@ -7,6 +7,10 @@ node {
     println "list of property files"
     p_files = files.split("\n").collect()[2,3]
     sh 'ls -la'
+    
+    test1 = sh(returnStdout:true, script: "cat ${p_files[0]}")
+    sh 'echo "----------------------------------------------"'
+    test2 = sh(returnStdout:true, script: "cat ${p_files[1]}")
 
     sh 'ls | grep prop >> file_list'
     sh '''sed "s/.*/'&',/" file_list > temp1'''
