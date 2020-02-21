@@ -9,6 +9,7 @@ node {
     sh 'ls -la'
 
     sh 'ls | grep prop >> file_list'
+    sh 'cat ./file_list
     sh '''sed "s/.*/'&',/" file_list > temp1'''
     sh '''sed '$ s/,$//' temp1 > file_list'''
     sh '''sed ''1' s/^/return[/\n' file_list > temp1'''
@@ -17,18 +18,7 @@ node {
     sh 'ls -la'
     sh 'cat ./file_list'
     
-    if files.equals(p_files[0]){
-        sh '''sed "s/.*/'&',/" ${p_files[0]} > property_list'''
-        sh '''sed '$ s/,$//' property_list > temp2'''
-        sh '''sed ''1' s/^/return[/\n' temp2 > property_list'''
-        sh '''echo "]" >> property_list'''
-//        sh '''sed "s/.*/'&',/" ${p_files[0]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
-    } else {
-        sh '''sed "s/.*/'&',/" ${p_files[1]} > property_list'''
-        sh '''sed '$ s/,$//' property_list > temp2'''
-        sh '''sed ''1' s/^/return[/\n' temp2 > property_list'''
-        sh '''echo "]" >> property_list'''
-//        sh '''sed "s/.*/'&',/" ${p_files[1]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
+    
     }
     
     properties([
@@ -73,7 +63,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: sh(returnStdout:true, script: 'cat ./property_list')
+                    script: ''
                 ]
                 ]
             ]
