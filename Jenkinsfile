@@ -9,7 +9,7 @@ node {
     sh 'ls -la'
     
     test1 = sh(returnStdout:true, script: "cat ${p_files[0]}")
-    test11 = readFile '${p_files[0]}'
+    test11 = readFile 'p_files[0]'
     sh 'echo ${p_files[0]}'
     sh 'echo "----------------------------------------------"'
     test2 = sh(returnStdout:true, script: "cat ${p_files[1]}")
