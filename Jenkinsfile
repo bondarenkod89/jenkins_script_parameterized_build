@@ -42,7 +42,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: 'return [\'cat ./file_list\']'
+                    script: sh(returnStdout:true, script: 'cat ./file_list')
 
                 ]
                 ]
