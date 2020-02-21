@@ -7,14 +7,6 @@ node {
     println "list of property files"
     p_files = files.split("\n").collect()[2,3]
     sh 'ls -la'
-    
-    test1 = sh(returnStdout:true, script: "cat ${p_files[0]}")
-    test11 = readFile 'p_files[0]'
-    sh 'echo ${p_files[0]}'
-    sh 'echo "----------------------------------------------"'
-    test2 = sh(returnStdout:true, script: "cat ${p_files[1]}")
-    test22 = readFile '${p_files[0]}'
-    sh 'echo ${p_files[1]}'
 
     sh 'ls | grep prop >> file_list'
     sh '''sed "s/.*/'&',/" file_list > temp1'''
@@ -25,7 +17,7 @@ node {
     sh 'ls -la'
     sh 'cat ./file_list'
     
-    if (files.equals(p_files[0])){
+    if (files.equals(\'' + p_files[0] + '\')){
         sh '''sed "s/.*/'&',/" ${p_files[0]} > property_list'''
         sh '''sed '$ s/,$//' property_list > temp2'''
         sh '''sed ''1' s/^/return[/\n' temp2 > property_list'''
@@ -81,7 +73,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: sh(returnStdout:true, script: 'cat ./file_list')
+                    script: sh(returnStdout:true, script: 'cat ./property_list')
                 ]
                 ]
             ]
