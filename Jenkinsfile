@@ -11,10 +11,11 @@ node {
     sh 'ls | grep prop >> file_list'
     
     sh 'fileprop1=$(cat file_list | head -n1 | tail -n1)'
-    sh 'fileprop2=$(cat file_list | head -n1 | tail -n1)'
+    sh 'fileprop2=$(cat file_list | head -n2 | tail -n1)'
     
-    sh 'echo "File proprty $fileprop1"'
-    sh 'echo "File proprty $fileprop2"'
+    sh 'echo $fileprop1'
+    sh 'echo "-------------"'
+    sh 'echo $fileprop2'
     
     sh '''sed "s/.*/'&',/" file_list > temp1'''
     sh '''sed '$ s/,$//' temp1 > file_list'''
