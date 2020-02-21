@@ -17,7 +17,7 @@ node {
     sh 'ls -la'
     sh 'cat ./file_list'
     
-    if (files.equals(\'' + p_files[0] + '\')){
+    if files.equals(\'' + p_files[0] + '\'){
         sh '''sed "s/.*/'&',/" ${p_files[0]} > property_list'''
         sh '''sed '$ s/,$//' property_list > temp2'''
         sh '''sed ''1' s/^/return[/\n' temp2 > property_list'''
