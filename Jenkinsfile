@@ -9,7 +9,7 @@ node {
     sh 'ls -la'
 
     sh 'ls | grep prop >> file_list'
-    sh 'sed "s/.*/'&',/" file_list > temp1'
+    ssh 'sed "s/.*/'&'\',\'/" file_list > temp1'
     sh 'sed "s/.*/'&',/" temp1 > file_list'
 
     if (liste1.equals(p_files[0])){
