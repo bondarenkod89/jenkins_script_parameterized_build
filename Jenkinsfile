@@ -13,9 +13,9 @@ node {
     fileprop1 = sh(returnStdout: true, script: 'cat file_list | head -n1 | tail -n1')
     fileprop2 = sh(returnStdout: true, script: 'cat file_list | head -n2 | tail -n1')
     
-    sh 'echo $fileprop1'
+    println(fileprop1)
     sh 'echo "-------------"'
-    sh 'echo $fileprop2'
+    println(fileprop2)
     
     sh '''sed "s/.*/'&',/" file_list > temp1'''
     sh '''sed '$ s/,$//' temp1 > file_list'''
