@@ -11,6 +11,9 @@ node {
     sh 'ls | grep prop >> file_list'
     sh "sed 's/.*/'&',/'' file_list > temp1"
     sh "sed '\$ s/,\$//' temp1 > file_list"
+    
+    sh 'ls -la'
+    sh 'cat ./file_list'
 
     if (liste1.equals(p_files[0])){
         sh "sed 's/.*/'&',/'' p_files[0] > temp1 | sed '\$ s/,\$//' temp1 > property_list"
