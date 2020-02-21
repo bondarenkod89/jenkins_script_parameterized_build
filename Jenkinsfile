@@ -21,8 +21,9 @@ node {
     sed '$ s/,$//' prop_list2 > temp22
     echo "if (Files.equals('property2')) {return[" | cat - temp22 > prop_list2
     echo "]}" >> prop_list2
-    cat prop_list1 > prop_list
-    cat prop_list2 >> prop_list
+    cat prop_list1 > temp
+    cat prop_list2 >> temp
+    cat temp | tr -s '\r\n' ' ' > prop_list
     '''
     
     fileprop1 = sh(returnStdout: true, script: 'cat file_list | head -n1 | tail -n1')
