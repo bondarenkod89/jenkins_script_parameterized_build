@@ -21,8 +21,6 @@ node {
     sh 'cat ./file_list'
     
     
-    }
-    
     properties([
         parameters([
             [$class: 'ChoiceParameter',
