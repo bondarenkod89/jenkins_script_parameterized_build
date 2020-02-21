@@ -16,13 +16,13 @@ node {
     
     sh 'ls -la'
     sh 'cat ./file_list'
-
+    /*
     if (files.equals(p_files[0])){
         sh '''sed "s/.*/'&',/" ${p_files[0]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
     } else {
         sh '''sed "s/.*/'&',/" ${p_files[1]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
     }
-
+    */
     properties([
         parameters([
             [$class: 'ChoiceParameter',
@@ -65,7 +65,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: sh(returnStdout: true, script: 'cat ./property_list')
+                    script: //sh(returnStdout: true, script: 'cat ./property_list')
                 ]
                 ]
             ]
