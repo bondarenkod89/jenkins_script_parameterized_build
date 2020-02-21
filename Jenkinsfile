@@ -10,12 +10,12 @@ node {
 
     sh 'ls | grep prop >> file_list'
     sh "sed 's/.*/'&',/'' file_list > temp1"
-    sh "sed '$ s/,$//' temp1 > file_list"
+    sh "sed '\$ s/,\$//' temp1 > file_list"
 
     if (liste1.equals(p_files[0])){
-        sh 'sed "s/.*/'&',/" p_files[0] > temp1 | sed "s/.*/'&',/" temp1 > property_list'
+        sh 'sed "s/.*/'&',/" p_files[0] > temp1 | sed "sed '\$ s/,\$//'" temp1 > property_list'
     } else {
-        sh 'sed "s/.*/'&',/" p_files[1] > temp1 | sed "s/.*/'&',/" temp1 > property_list'
+        sh 'sed "s/.*/'&',/" p_files[1] > temp1 | sed "sed '\$ s/,\$//'" temp1 > property_list'
     }
 
     properties([
