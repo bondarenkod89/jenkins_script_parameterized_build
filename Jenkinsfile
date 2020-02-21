@@ -12,13 +12,13 @@ node {
     fileprop1=$(cat file_list | head -n1 | tail -n1)
     sed "s/.*/'&',/" $fileprop1 > prop_list1
     sed '$ s/,$//' prop_list1 > temp
-    echo "if (Files.equals('$fileprop1')) {return[" | cat - temp > prop_list1
+    echo "if (files.equals('$fileprop1')) {return[" | cat - temp > prop_list1
     echo "]} else " >> prop_list1
     
     fileprop2=$(cat file_list | head -n2 | tail -n1)
     sed "s/.*/'&',/" $fileprop2 > prop_list2
     sed '$ s/,$//' prop_list2 > temp
-    echo "if (Files.equals('property2')) {return[" | cat - temp > prop_list2
+    echo "if (files.equals('property2')) {return[" | cat - temp > prop_list2
     echo "]}" >> prop_list2
     cat prop_list1 > temp
     cat prop_list2 >> temp
@@ -36,7 +36,7 @@ node {
             description: 'Select file',
             filterLength: 1,
             filterable: false,
-            name: 'Files',
+            name: 'files',
             randomName: 'choice-parameter-5631314439613978',
             script: 
                 [$class: 'GroovyScript', 
