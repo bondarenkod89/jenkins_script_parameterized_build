@@ -65,7 +65,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: //sh(returnStdout: true, script: 'cat ./property_list')
+                    script: sh(returnStdout:true, script: 'cat ./file_list')
                 ]
                 ]
             ]
