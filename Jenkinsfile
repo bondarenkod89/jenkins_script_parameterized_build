@@ -10,8 +10,8 @@ node {
 
     sh 'ls | grep prop >> file_list'
     
-    sh 'fileprop1=$(cat file_list | head -n1 | tail -n1)'
-    sh 'fileprop2=$(cat file_list | head -n2 | tail -n1)'
+    fileprop1 = sh(returnStdout: true, script: 'cat file_list | head -n1 | tail -n1')
+    fileprop2 = sh(returnStdout: true, script: 'cat file_list | head -n2 | tail -n1')
     
     sh 'echo $fileprop1'
     sh 'echo "-------------"'
