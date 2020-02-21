@@ -16,9 +16,9 @@ node {
     sh 'cat ./file_list'
 
     if (files.equals(p_files[0])){
-        sh '''sed "s/.*/'&',/" p_files[0] > temp1 | sed '$ s/,$//' temp1 > property_list'''
+        sh '''sed "s/.*/'&',/" ${p_files[0]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
     } else {
-        sh '''sed "s/.*/'&',/" p_files[1] > temp1 | sed '$ s/,$//' temp1 > property_list'''
+        sh '''sed "s/.*/'&',/" ${p_files[1]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
     }
 
     properties([
@@ -40,7 +40,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: 'return [file_list]'
+                    script: 'return [\'cat ./file_list\']'
 
                 ]
                 ]
