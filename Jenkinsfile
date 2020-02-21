@@ -9,8 +9,12 @@ node {
     sh 'ls -la'
     
     test1 = sh(returnStdout:true, script: "cat ${p_files[0]}")
+    test11 = readFile '${p_files[0]}'
+    sh 'echo ${p_files[0]}'
     sh 'echo "----------------------------------------------"'
     test2 = sh(returnStdout:true, script: "cat ${p_files[1]}")
+    test22 = readFile '${p_files[0]}'
+    sh 'echo ${p_files[1]}'
 
     sh 'ls | grep prop >> file_list'
     sh '''sed "s/.*/'&',/" file_list > temp1'''
