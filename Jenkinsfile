@@ -40,7 +40,7 @@ node {
                 script: [
                     classpath: [],
                     sandbox: false,
-                    script: 'cat ./file_list'
+                    script: 'return [file_list]'
 
                 ]
                 ]
