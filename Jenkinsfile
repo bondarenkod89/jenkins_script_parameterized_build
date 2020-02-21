@@ -17,11 +17,19 @@ node {
     sh 'ls -la'
     sh 'cat ./file_list'
     
-//    if (files.equals(p_files[0])){
+    if (files.equals(p_files[0])){
+        sh '''sed "s/.*/'&',/" ${p_files[0]} > property_list'''
+        sh '''sed '$ s/,$//' property_list > temp2'''
+        sh '''sed ''1' s/^/return[/\n' temp2 > property_list'''
+        sh '''echo "]" >> property_list'''
 //        sh '''sed "s/.*/'&',/" ${p_files[0]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
-//    } else {
+    } else {
+        sh '''sed "s/.*/'&',/" ${p_files[1]} > property_list'''
+        sh '''sed '$ s/,$//' property_list > temp2'''
+        sh '''sed ''1' s/^/return[/\n' temp2 > property_list'''
+        sh '''echo "]" >> property_list'''
 //        sh '''sed "s/.*/'&',/" ${p_files[1]} > temp1 | sed '$ s/,$//' temp1 > property_list'''
-//    }
+    }
     
     properties([
         parameters([
